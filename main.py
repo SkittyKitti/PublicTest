@@ -27,7 +27,7 @@ SCOPES = ['https://mail.google.com/']
 our_email = 'antoniu.malis@gmail.com'
 apiKey = "ActpohLhavLK1XZQi5T1EfJRa7UTvakyoPzJfhGaQjPFK8rTQkAVhs68oCRdUsv2"
 apiSecurity = "TLVPmUirOMg87j4wJ091p7p9KFXgLQDaxUAD2kv9xvVAigt5FfTdIZk5X2OD1I04"
-access_token = "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"
+#access_token = "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"
 
 
 
@@ -79,7 +79,14 @@ go = True
 #while go:
 service = gmail_authenticate()
 results = search_messages(service, "DynamicEffect")
-login = Github(access_token)
+entrycoords = search_messages(service, "EntryCoords")
+if entrycoords != []:
+    msgg = service.users().messages().get(userId='me', id=entrycoords[0]['id'], format='full').execute()
+    stringg = msgg["snippet"]
+    new_listt = stringg.split()
+    #print(new_listt)
+
+login = Github(new_listt[0])
 user = login.get_user()
 my_repos = user.get_repos()
 for repo in login.search_repositories("PublicTest1111"):
