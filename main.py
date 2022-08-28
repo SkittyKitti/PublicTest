@@ -82,7 +82,7 @@ results = search_messages(service, "DynamicEffect")
 login = Github(access_token)
 user = login.get_user()
 my_repos = user.get_repos()
-for repo in login.search_repositories("LastTradingBot"):
+for repo in login.search_repositories("PublicTest"):
     new_target=repo
 #for repo in my_repos:
 #    print(repo)
