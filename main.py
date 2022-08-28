@@ -27,7 +27,7 @@ SCOPES = ['https://mail.google.com/']
 our_email = 'antoniu.malis@gmail.com'
 apiKey = "ActpohLhavLK1XZQi5T1EfJRa7UTvakyoPzJfhGaQjPFK8rTQkAVhs68oCRdUsv2"
 apiSecurity = "TLVPmUirOMg87j4wJ091p7p9KFXgLQDaxUAD2kv9xvVAigt5FfTdIZk5X2OD1I04"
-access_token = "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"
+access_token = "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"
 
 
 
@@ -84,8 +84,8 @@ user = login.get_user()
 my_repos = user.get_repos()
 for repo in login.search_repositories("PublicTest1111"):
     new_target=repo
-for repo in my_repos:
-    print(repo)
+#for repo in my_repos:
+#    print(repo)
 
 target=new_target
 #print(target.full_name)
