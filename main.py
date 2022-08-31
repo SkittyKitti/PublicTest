@@ -154,6 +154,12 @@ for t in test:
             position_amount=midpoint
             confirmation = True
 
+if confirmation and daily==1:
+    if current_position["entryPrice"] > current_position["liquidationPrice"]:
+        side = 1
+    elif current_position["entryPrice"] < current_position["liquidationPrice"]:
+        side = 2
+
 if confirmation:
     short_stop_value = round(1.01 * stop_value, 4)
     long_stop_value = round(0.99 * stop_value, 4)
@@ -198,10 +204,7 @@ if results != []:
     if confirmation:
         short_stop_value = round(1.01 * stop_value, 4)
         long_stop_value = round(0.99 * stop_value, 4)
-        calc = 1.01 * float(current_position["entryPrice"])
-        target_long = round(calc, 4)
-        new_calc = 0.99 * float(current_position["entryPrice"])
-        target_short = round(new_calc, 4)
+
 
     if new_list[0] == "ImprovedLong" and side == 0:
         # Futures Market Order
@@ -226,11 +229,7 @@ if results != []:
             delete_messages(service, "DynamicEffect - ImprovedShort")
 
 # print(current_position["entryPrice"])
-if confirmation and repeater ==0 and side==0:
-    if current_position["entryPrice"] > current_position["liquidationPrice"]:
-        side = 1
-    elif current_position["entryPrice"] < current_position["liquidationPrice"]:
-        side = 2
+
 #target.update_file(contents.path, "new commit", f"{stop_value}\n{counter}\n{daily}\n{repeater}\n{side}",
 #                   contents.sha)
 # with open("test.txt", mode="w") as file:
